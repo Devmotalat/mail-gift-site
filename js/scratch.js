@@ -1,0 +1,3 @@
+const c=document.getElementById('c'),x=c.getContext('2d');x.fillStyle='#f4b6c2';x.fillRect(0,0,320,300);
+let down=false,n=0;function s(e){if(!down)return;const r=c.getBoundingClientRect(),t=e.touches?e.touches[0]:e;x.globalCompositeOperation='destination-out';x.beginPath();x.arc((t.clientX-r.left)*320/r.width,(t.clientY-r.top)*300/r.height,22,0,7);x.fill();e.preventDefault()}
+['mousedown','touchstart'].forEach(v=>c.addEventListener(v,e=>{down=true;s(e)}));['mouseup','touchend','mouseleave'].forEach(v=>c.addEventListener(v,()=>down=false));['mousemove','touchmove'].forEach(v=>c.addEventListener(v,s));
